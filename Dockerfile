@@ -17,4 +17,4 @@ COPY start.sh /start.sh
 COPY gen_config.sh /gen_config.sh
 COPY wallet.sh /wallet.sh
 RUN chmod 777 /*.sh
-CMD /start.sh bsha3.conf BSHA3 bsha3d
+CMD /start.sh bitcoin.conf BSHA3 bsha3d
