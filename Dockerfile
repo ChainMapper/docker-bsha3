@@ -1,6 +1,6 @@
 FROM chainmapper/walletbase-bionic-build as builder
 
-ENV GIT_COIN_URL    https://github.com/BSHA3/bsha3.git
+ENV GIT_COIN_URL    https://github.com/bsha3-lwma/bsha3.git
 ENV GIT_COIN_NAME   bsha3   
 
 RUN	git clone $GIT_COIN_URL $GIT_COIN_NAME \
@@ -14,22 +14,13 @@ RUN	git clone $GIT_COIN_URL $GIT_COIN_NAME \
 
 FROM chainmapper/walletbase-bionic as runtime
 
-#FROM chainmapper/walletbase-bionic
-
-#ENV WALLET_URL=https://github.com/BSHA3/bsha3/releases/download/v0.0.2/bsha3-v0.0.2-x86_64-pc-linux-gnu.tar.gz
-
-#RUN wget $WALLET_URL -O /tmp/wallet.tar.gz \
-#	&& cd /usr/local/bin \
-#	&& tar xvf /tmp/wallet.tar.gz --strip-components 1 \
-#	&& rm /tmp/wallet.tar.gz
-
 COPY --from=builder /usr/local/bin /usr/local/bin
 
 RUN mkdir /data
 ENV HOME /data
 
-#rpc port & main port
-EXPOSE 6666
+#zmq port & main port
+EXPOSE 5555 6666
 
 COPY start.sh /start.sh
 COPY gen_config.sh /gen_config.sh

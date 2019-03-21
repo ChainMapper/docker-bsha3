@@ -8,4 +8,5 @@ rpcport=6666
 rpcbind=0.0.0.0
 txindex=1
 maxconnetions=50
+zmqpubhashblock=tcp://*:5555
 EOF
