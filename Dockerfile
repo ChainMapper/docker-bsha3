@@ -1,6 +1,6 @@
 FROM chainmapper/walletbase-bionic-build as builder
 
-ENV GIT_COIN_URL    https://github.com/bsha3-lwma/bsha3.git
+ENV GIT_COIN_URL    https://github.com/bsha3-community/bsha3-lwma.git
 ENV GIT_COIN_NAME   bsha3   
 
 RUN	git clone $GIT_COIN_URL $GIT_COIN_NAME \
